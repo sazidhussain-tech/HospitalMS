@@ -58,3 +58,44 @@ exports.searchDoctors = async (req, res) => {
         });
     }
 };
+// Delete Doctor
+exports.deleteDoctor = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        await db.query(
+            "DELETE FROM doctors WHERE id=$1",
+            [id]
+        );
+
+        res.json({
+            message: "Doctor Deleted Successfully"
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            error: error.message
+        });
+    }
+};
+// Update Doctor
+exports.updateDoctor = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { specialization, phone, address } = req.body;
+
+        await db.query(
+    "UPDATE doctors SET specialization=$1, phone=$2, address=$3 WHERE id=$4",
+    [specialization, phone, address, id]
+);
+
+        res.json({
+            message: "Doctor Updated Successfully"
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            error: error.message
+        });
+    }
+};

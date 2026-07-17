@@ -3,7 +3,9 @@ const router = express.Router();
 
 const {
     addPrescription,
-    getPrescriptions
+    getPrescriptions,
+    deletePrescription,
+    updatePrescription
 } = require("../controllers/prescriptionController");
 
 
@@ -11,5 +13,8 @@ router.post("/", addPrescription);
 
 router.get("/", getPrescriptions);
 
+router.delete("/:id", deletePrescription);
+
+router.put("/:id", updatePrescription);
 
 module.exports = router;

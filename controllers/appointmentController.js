@@ -51,3 +51,63 @@ exports.getAppointments = async (req,res)=>{
         });
     }
 };
+// Delete Appointment
+exports.deleteAppointment = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        await db.query(
+            "DELETE FROM appointments WHERE id=$1",
+            [id]
+        );
+
+        res.json({
+            message: "Appointment Deleted Successfully"
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            error: error.message
+        });
+    }
+};
+
+
+// Update Appointment
+exports.updateAppointment = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const {
+            patient_id,
+            doctor_id,
+            appointment_date,
+            appointment_time
+        } = req.body;
+
+        await db.query(
+            `UPDATE appointments
+             SET patient_id=$1,
+                 doctor_id=$2,
+                 appointment_date=$3,
+                 appointment_time=$4
+             WHERE id=$5`,
+            [
+                patient_id,
+                doctor_id,
+                appointment_date,
+                appointment_time,
+                id
+            ]
+        );
+
+        res.json({
+            message: "Appointment Updated Successfully"
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            error: error.message
+        });
+    }
+};

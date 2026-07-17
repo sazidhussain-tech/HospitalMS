@@ -1,0 +1,196 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+
+.dashboard {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #1f2937;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar p {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.sidebar p:hover {
+    background: #374151;
+}
+
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    width: 220px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.card h3 {
+    font-size: 32px;
+    color: #2563eb;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.content h1 {
+    color: #1f2937;
+}
+
+.content h3 {
+    color: #6b7280;
+}
+@media print {
+
+    body * {
+        visibility: hidden;
+    }
+
+    .print-bill,
+    .print-bill * {
+        visibility: visible;
+    }
+
+    .print-bill {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+}
+.sidebar-menu {
+    height: 100%;
+}
+
+.sidebar-menu h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.menu-item:hover {
+    background: #374151;
+}
+
+.logout {
+    color: #ff6b6b;
+}
+button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 3px;
+    font-size: 14px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+.edit-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.delete-btn {
+    background: #dc2626;
+    color: white;
+}
+
+.edit-btn:hover {
+    background: #1d4ed8;
+}
+
+.delete-btn:hover {
+    background: #b91c1c;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+}
+
+th {
+    background: #1f2937;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+tr:hover {
+    background: #f3f4f6;
+}
+@media (max-width: 768px) {
+
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: auto;
+        height: auto;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .card {
+        width: auto;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+}
