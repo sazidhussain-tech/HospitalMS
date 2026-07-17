@@ -1,59 +1,79 @@
 # 🏥 Hospital Management System
 
-A Full Stack Hospital Management System built with Node.js, Express.js and PostgreSQL.
+A Full Stack Hospital Management System built using React.js, Node.js, Express.js and PostgreSQL.
 
-## Features
+## 🚀 Features
 
-- User Registration
-- User Login (JWT Authentication)
-- Role Based Access Control (Admin, Doctor, Patient)
-- Doctor Management
-- Patient Management
-- Appointment Booking
-- Prescription Management
-- Billing System
-- Dashboard API
-- Doctor Search API
+- 🔐 JWT Authentication
+- 👨‍⚕️ Doctor Management (CRUD)
+- 🧑 Patient Management (CRUD)
+- 📅 Appointment Management (CRUD)
+- 💊 Prescription Management (CRUD)
+- 💳 Billing Management (CRUD)
+- 🖨️ Invoice Printing
+- 📊 Dashboard Analytics
+- 🔍 Search Functionality
+- 📱 Responsive UI
 
-## Technologies
+## 🛠️ Tech Stack
 
+### Frontend
+- React.js
+- React Router DOM
+- Recharts
+- CSS
+
+### Backend
 - Node.js
 - Express.js
 - PostgreSQL
 - JWT
 - bcrypt
-- REST API
 
-## API Endpoints
+## 📂 Project Structure
 
-POST /api/auth/register
+```
+HospitalMS
+│
+├── frontend/
+├── controllers/
+├── routes/
+├── middleware/
+├── config/
+├── server.js
+└── README.md
+```
 
-POST /api/auth/login
+## ⚙️ Installation
 
-GET /api/doctors
+### Backend
 
-POST /api/doctors
+```bash
+npm install
+node server.js
+```
 
-GET /api/doctors/search
+### Frontend
 
-GET /api/patients
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-POST /api/patients
+## 📌 Modules
 
-GET /api/appointments
+- Login
+- Dashboard
+- Doctors
+- Patients
+- Appointments
+- Prescriptions
+- Bills
 
-POST /api/appointments
+## 👨‍💻 Author
 
-GET /api/prescriptions
+**Sazid Hussain**
 
-POST /api/prescriptions
-
-GET /api/bills
-
-POST /api/bills
-
-GET /api/dashboard
-
-## Author
-
-Sazid Hussain
+GitHub:
+https://github.com/sazidhussain-tech
