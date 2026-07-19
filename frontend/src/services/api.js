@@ -1,3 +1,2 @@
-const API = "http://localhost:3000/api";
-
+const API = "https://hospitalms-rz6r.onrender.com/api";
 export default API;
