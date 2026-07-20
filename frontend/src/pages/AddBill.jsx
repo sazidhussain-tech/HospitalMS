@@ -11,22 +11,21 @@ function AddBill() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch(
-            `${API}/bills`
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    patient_id: Number(patientId),
-                    appointment_id: Number(appointmentId),
-                    amount: Number(amount),
-                    payment_status: paymentStatus
-                })
-            }
-        );
-
+const response = await fetch(
+    `${API}/bills`,
+    {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            patient_id: Number(patientId),
+            appointment_id: Number(appointmentId),
+            amount: Number(amount),
+            payment_status
+        })
+    }
+);
         const data = await response.json();
 
         alert(data.message || "Bill Added Successfully");

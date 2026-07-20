@@ -12,23 +12,22 @@ function AddPrescription() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch(
-            `${API}/prescriptions`
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    appointment_id: Number(appointmentId),
-                    doctor_id: Number(doctorId),
-                    patient_id: Number(patientId),
-                    medicine,
-                    description
-                })
-            }
-        );
-
+const response = await fetch(
+    `${API}/prescriptions`,
+    {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            appointment_id: Number(appointmentId),
+            doctor_id: Number(doctorId),
+            patient_id: Number(patientId),
+            medicine,
+            description
+        })
+    }
+);
         const data = await response.json();
 
         alert(data.message || "Prescription Added Successfully");
