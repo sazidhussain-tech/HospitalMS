@@ -1,3 +1,5 @@
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 import API from "../services/api";
 import { useEffect, useState } from "react";
 
@@ -64,32 +66,24 @@ const updateBill = async () => {
     getBills();
 };
 
-const printInvoice = () => {
-    const printContents = document.querySelector(".print-bill").innerHTML;
+const downloadPDF = async () => {
+    const input = document.querySelector(".print-bill");
 
-    const win = window.open("", "", "width=800,height=600");
+    const canvas = await html2canvas(input);
 
-    win.document.write(`
-        <html>
-        <head>
-            <title>Invoice</title>
-            <style>
-                body{
-                    font-family: Arial;
-                    padding:20px;
-                }
-            </style>
-        </head>
-        <body>
-            ${printContents}
-        </body>
-        </html>
-    `);
+    const imgData = canvas.toDataURL("image/png");
 
-    win.document.close();
-    win.focus();
-    win.print();
-    win.close();
+    const pdf = new jsPDF("p", "mm", "a4");
+
+    const pageWidth = pdf.internal.pageSize.getWidth();
+
+    const imgWidth = pageWidth - 20;
+
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+    pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
+
+    pdf.save(`Bill-${printBill.id}.pdf`);
 };
 
     return (
@@ -187,10 +181,9 @@ const printInvoice = () => {
         <p>Amount: ₹{printBill.amount}</p>
         <p>Status: {printBill.payment_status}</p>
 
-		<button onClick={printInvoice}>
-            Print Now
-        </button>
-
+		<button onClick={downloadPDF}>
+    Download PDF
+</button>
     </div>
 )}
 
