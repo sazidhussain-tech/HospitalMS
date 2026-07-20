@@ -63,6 +63,35 @@ const updateBill = async () => {
 
     getBills();
 };
+
+const printInvoice = () => {
+    const printContents = document.querySelector(".print-bill").innerHTML;
+
+    const win = window.open("", "", "width=800,height=600");
+
+    win.document.write(`
+        <html>
+        <head>
+            <title>Invoice</title>
+            <style>
+                body{
+                    font-family: Arial;
+                    padding:20px;
+                }
+            </style>
+        </head>
+        <body>
+            ${printContents}
+        </body>
+        </html>
+    `);
+
+    win.document.close();
+    win.focus();
+    win.print();
+    win.close();
+};
+
     return (
         <div>
 
@@ -158,7 +187,7 @@ const updateBill = async () => {
         <p>Amount: ₹{printBill.amount}</p>
         <p>Status: {printBill.payment_status}</p>
 
-        <button onClick={() => window.print()}>
+		<button onClick={printInvoice}>
             Print Now
         </button>
 
