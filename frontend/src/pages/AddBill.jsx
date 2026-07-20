@@ -22,7 +22,7 @@ const response = await fetch(
             patient_id: Number(patientId),
             appointment_id: Number(appointmentId),
             amount: Number(amount),
-            payment_status
+            payment_status: paymentStatus
         })
     }
 );
