@@ -1,3 +1,4 @@
+import API from "../services/api";
 import { useEffect, useState } from "react";
 
 function Prescriptions() {
@@ -11,7 +12,7 @@ const [search, setSearch] = useState("");
     const getPrescriptions = async () => {
 
         const response = await fetch(
-            "http://localhost:3000/api/prescriptions"
+            `${API}/prescriptions`
         );
 
         const data = await response.json();
@@ -31,7 +32,7 @@ if (Array.isArray(data)) {
 const deletePrescription = async (id) => {
 
     const response = await fetch(
-        `http://localhost:3000/api/prescriptions/${id}`,
+        `${API}/prescriptions/${id}`,
         {
             method: "DELETE"
         }
@@ -43,11 +44,10 @@ const deletePrescription = async (id) => {
 
     getPrescriptions();
 };
-
 const updatePrescription = async () => {
 
     const response = await fetch(
-        `http://localhost:3000/api/prescriptions/${editPrescription.id}`,
+        `${API}/prescriptions/${editPrescription.id}`,
         {
             method: "PUT",
             headers: {
@@ -65,7 +65,6 @@ const updatePrescription = async () => {
 
     getPrescriptions();
 };
-
     return (
         <div>
 

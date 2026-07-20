@@ -1,5 +1,6 @@
+import API from "../services/api";
 import { useState } from "react";
-
+import API from "../services/api";
 function AddDoctor() {
     const [userId, setUserId] = useState("");
     const [specialization, setSpecialization] = useState("");
@@ -9,7 +10,7 @@ function AddDoctor() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch("http://localhost:3000/api/doctors", {
+        const response = await fetch(`${API}/doctors`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

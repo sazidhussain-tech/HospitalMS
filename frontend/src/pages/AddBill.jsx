@@ -1,3 +1,4 @@
+import API from "../services/api";
 import { useState } from "react";
 
 function AddBill() {
@@ -11,7 +12,7 @@ function AddBill() {
         e.preventDefault();
 
         const response = await fetch(
-            "http://localhost:3000/api/bills",
+            `${API}/bills`
             {
                 method: "POST",
                 headers: {

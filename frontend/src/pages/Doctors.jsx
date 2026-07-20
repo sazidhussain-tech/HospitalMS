@@ -1,5 +1,6 @@
+import API from "../services/api";
 import { useEffect, useState } from "react";
-
+import API from "../services/api";
 function Doctors() {
 
     const [doctors, setDoctors] = useState([]);
@@ -7,7 +8,7 @@ const [editDoctor, setEditDoctor] = useState(null);
 const [search, setSearch] = useState("");
     const getDoctors = async () => {
         const response = await fetch(
-            "http://localhost:3000/api/doctors",
+            `${API}/doctors`,
             {
                 headers: {
                     Authorization:
@@ -35,15 +36,15 @@ if (Array.isArray(data)) {
     const deleteDoctor = async (id) => {
 
         const response = await fetch(
-            `http://localhost:3000/api/doctors/${id}`,
-            {
-                method: "DELETE",
-                headers: {
-                    Authorization:
-                        "Bearer " + localStorage.getItem("token")
-                }
-            }
-        );
+    `${API}/doctors/${id}`,
+    {
+        method: "DELETE",
+        headers: {
+            Authorization:
+                "Bearer " + localStorage.getItem("token")
+        }
+    }
+);
 
         const data = await response.json();
 
@@ -55,17 +56,17 @@ if (Array.isArray(data)) {
 const updateDoctor = async () => {
 
     const response = await fetch(
-        `http://localhost:3000/api/doctors/${editDoctor.id}`,
-        {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization:
-                    "Bearer " + localStorage.getItem("token")
-            },
-            body: JSON.stringify(editDoctor)
-        }
-    );
+    `${API}/doctors/${editDoctor.id}`,
+    {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization:
+                "Bearer " + localStorage.getItem("token")
+        },
+        body: JSON.stringify(editDoctor)
+    }
+);
 
     const data = await response.json();
 

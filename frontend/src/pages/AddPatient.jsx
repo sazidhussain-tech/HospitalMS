@@ -1,3 +1,4 @@
+import API from "../services/api";
 import { useState } from "react";
 
 function AddPatient() {
@@ -13,7 +14,7 @@ function AddPatient() {
         e.preventDefault();
 
         const response = await fetch(
-            "http://localhost:3000/api/patients",
+            `${API}/patients`,
             {
                 method: "POST",
                 headers: {

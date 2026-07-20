@@ -1,3 +1,4 @@
+import API from "../services/api";
 import { useEffect, useState } from "react";
 
 function Appointments() {
@@ -8,7 +9,7 @@ function Appointments() {
     const getAppointments = async () => {
 
         const response = await fetch(
-            "http://localhost:3000/api/appointments"
+            `${API}/appointments`
         );
 
         const data = await response.json();
@@ -31,11 +32,11 @@ const deleteAppointment = async (id) => {
     console.log("Deleting ID:", id);
 
     const response = await fetch(
-        `http://localhost:3000/api/appointments/${id}`,
-        {
-            method: "DELETE"
-        }
-    );
+    `${API}/appointments/${id}`,
+    {
+        method: "DELETE"
+    }
+);
 
     const data = await response.json();
 
@@ -49,15 +50,15 @@ const deleteAppointment = async (id) => {
 const updateAppointment = async () => {
 
     const response = await fetch(
-        `http://localhost:3000/api/appointments/${editAppointment.id}`,
-        {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(editAppointment)
-        }
-    );
+    `${API}/appointments/${editAppointment.id}`,
+    {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(editAppointment)
+    }
+);
 
     const data = await response.json();
 

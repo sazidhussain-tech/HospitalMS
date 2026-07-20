@@ -1,3 +1,4 @@
+import API from "../services/api";
 import { useState } from "react";
 
 function AddAppointment() {
@@ -11,20 +12,20 @@ function AddAppointment() {
         e.preventDefault();
 
         const response = await fetch(
-            "http://localhost:3000/api/appointments",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    patient_id: Number(patientId),
-                    doctor_id: Number(doctorId),
-                    appointment_date: appointmentDate,
-                    appointment_time: appointmentTime
-                })
-            }
-        );
+    `${API}/appointments`,
+    {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            patient_id: Number(patientId),
+            doctor_id: Number(doctorId),
+            appointment_date: appointmentDate,
+            appointment_time: appointmentTime
+        })
+    }
+);
 
         const data = await response.json();
 

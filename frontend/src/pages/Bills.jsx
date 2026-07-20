@@ -1,3 +1,4 @@
+import API from "../services/api";
 import { useEffect, useState } from "react";
 
 function Bills() {
@@ -9,7 +10,7 @@ function Bills() {
     const getBills = async () => {
 
         const response = await fetch(
-            "http://localhost:3000/api/bills"
+           `${API}/bills`
         );
 
         const data = await response.json();
@@ -28,7 +29,7 @@ function Bills() {
 const deleteBill = async (id) => {
 
     const response = await fetch(
-        `http://localhost:3000/api/bills/${id}`,
+        `${API}/bills/${id}`,
         {
             method: "DELETE"
         }
@@ -41,11 +42,10 @@ const deleteBill = async (id) => {
     getBills();
 };
 
-
 const updateBill = async () => {
 
     const response = await fetch(
-        `http://localhost:3000/api/bills/${editBill.id}`,
+        `${API}/bills/${editBill.id}`,
         {
             method: "PUT",
             headers: {

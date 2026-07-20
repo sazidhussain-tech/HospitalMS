@@ -1,5 +1,6 @@
+import API from "../services/api";
 import { useEffect, useState } from "react";
-
+import API from "../services/api";
 import {
     BarChart,
     Bar,
@@ -50,7 +51,7 @@ const chartData = [
 
 useEffect(() => {
 
-    fetch("http://localhost:3000/api/dashboard")
+    fetch(`${API}/dashboard`)
     .then(res => res.json())
     .then(data => setStats(data));
 
