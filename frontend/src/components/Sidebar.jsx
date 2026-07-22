@@ -1,4 +1,15 @@
+import { useEffect, useState } from "react";
 function Sidebar() {
+
+const [user, setUser] = useState(null);
+
+useEffect(() => {
+    const data = localStorage.getItem("user");
+
+    if (data) {
+        setUser(JSON.parse(data));
+    }
+}, []);
 
     const logout = () => {
         localStorage.removeItem("token");
@@ -9,6 +20,18 @@ function Sidebar() {
         <div className="sidebar-menu">
 
             <h2>🏥 HMS</h2>
+
+		{user && (
+    <div
+        style={{
+            textAlign: "center",
+            marginBottom: "15px"
+        }}
+    >
+        <h3>{user.full_name}</h3>
+        <p>{user.role}</p>
+    </div>
+)}
 
             <hr />
 

@@ -1,7 +1,9 @@
 import API from "../services/api";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function Login() {
 
+	const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -39,8 +41,7 @@ if (data.token) {
 
     alert(`Welcome ${data.user.full_name}`);
 
-    window.location.reload();
-
+navigate("/dashboard");
 } else {
 
     alert(data.message);
