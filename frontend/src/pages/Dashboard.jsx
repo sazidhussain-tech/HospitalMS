@@ -18,6 +18,7 @@ import "./Dashboard.css";
 import Sidebar from "../components/Sidebar";
 
 function Dashboard() {
+const user = JSON.parse(localStorage.getItem("user"));
 const [stats, setStats] = useState({
     total_doctors: 0,
     total_patients: 0,
@@ -60,7 +61,13 @@ useEffect(() => {
 
                 <h1>🏥 Hospital Management Dashboard</h1>
 
-                <h3>Welcome Admin</h3>
+		<h3>
+    Welcome {user?.full_name}
+</h3>
+
+<p>
+    Role: {user?.role}
+</p>		
 
                 <div className="cards">
 
