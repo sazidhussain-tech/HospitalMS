@@ -27,14 +27,26 @@ function Login() {
 
         const data = await response.json();
 
-        if (data.token) {
+
+if (data.token) {
+
     localStorage.setItem("token", data.token);
-    alert("Login Successful");
+
+    localStorage.setItem(
+        "user",
+        JSON.stringify(data.user)
+    );
+
+    alert(`Welcome ${data.user.full_name}`);
+
     window.location.reload();
 
 } else {
+
     alert(data.message);
+
 }
+
     };
 
 
