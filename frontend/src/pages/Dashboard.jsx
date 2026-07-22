@@ -1,12 +1,18 @@
 import API from "../services/api";
 import { useEffect, useState } from "react";
 import {
+    ResponsiveContainer,
     BarChart,
     Bar,
+    LineChart,
+    Line,
+    PieChart,
+    Pie,
+    Cell,
     XAxis,
     YAxis,
     Tooltip,
-    ResponsiveContainer
+    Legend
 } from "recharts";
 import Doctors from "./Doctors";
 import AddDoctor from "./AddDoctor";
@@ -26,7 +32,8 @@ const [stats, setStats] = useState({
     total_doctors: 0,
     total_patients: 0,
     total_appointments: 0,
-    total_bills: 0
+    total_bills: 0,
+    total_revenue: 0
 });
 
 const chartData = [
@@ -91,8 +98,13 @@ useEffect(() => {
                     <div className="card">
                         <h2>💳 Bills</h2>
 			<h3>{stats.total_bills}</h3>
-                        
+			                        
                     </div>
+
+		    <div className="card">
+   			 <h2>💰 Revenue</h2>
+   			 <h3>₹{stats.total_revenue}</h3>
+		    </div>
 
                 </div>
 
