@@ -11,11 +11,11 @@ useEffect(() => {
     }
 }, []);
 
-    const logout = () => {
-        localStorage.removeItem("token");
-        window.location.reload();
-    };
-
+const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    window.location.href = "/";
+};
     return (
         <div className="sidebar-menu">
 
