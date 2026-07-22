@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 function Sidebar() {
 
 const [user, setUser] = useState(null);
+const isAdmin = user?.role === "admin";
 
 useEffect(() => {
     const data = localStorage.getItem("user");
@@ -39,25 +40,34 @@ const logout = () => {
                 🏠 Dashboard
             </div>
 
-            <div className="menu-item">
-                👨‍⚕️ Doctors
-            </div>
+{isAdmin && (
+<div className="menu-item">
+    👨‍⚕️ Doctors
+</div>
+)}
+{isAdmin && (
+<div className="menu-item">
+    🧑 Patients
+</div>
+)}
 
-            <div className="menu-item">
-                🧑 Patients
-            </div>
+{isAdmin && (
+<div className="menu-item">
+    📅 Appointments
+</div>
+)}
 
-            <div className="menu-item">
-                📅 Appointments
-            </div>
+{isAdmin && (
+<div className="menu-item">
+    💊 Prescriptions
+</div>
+)}
 
-            <div className="menu-item">
-                💊 Prescriptions
-            </div>
-
-            <div className="menu-item">
-                💳 Billing
-            </div>
+{isAdmin && (
+<div className="menu-item">
+    💳 Billing
+</div>
+)}
 
             <hr />
 

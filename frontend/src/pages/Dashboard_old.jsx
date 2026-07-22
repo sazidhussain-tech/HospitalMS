@@ -14,6 +14,16 @@ import {
     Tooltip,
     Legend
 } from "recharts";
+import Doctors from "./Doctors";
+import AddDoctor from "./AddDoctor";
+import Patients from "./Patients";
+import AddPatient from "./AddPatient";
+import AddAppointment from "./AddAppointment";
+import Appointments from "./Appointments";
+import AddPrescription from "./AddPrescription";
+import Prescriptions from "./Prescriptions";
+import AddBill from "./AddBill";
+import Bills from "./Bills";
 import "./Dashboard.css";
 import Sidebar from "../components/Sidebar";
 
@@ -158,10 +168,44 @@ useEffect(() => {
 
 </div>
 
+		<hr />
+		<AddDoctor />
+		<hr />
+
+		<AddPatient />		
+		<hr />
+
+		<AddAppointment />
+		<hr />
+
+		<Doctors />
+
+		<hr />
+
+		<Patients />
+
+		<hr />
+		<Appointments />
+
+		<hr />
+
+		<AddPrescription />
+
+		<hr />
+
+		<Prescriptions />
+
+		<hr />
+
+		<AddBill />
+
+		<hr />
+
+		<Bills />
+	
             </div>
 
         </div>
-
     );
 }
 
