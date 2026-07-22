@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 function Sidebar() {
 
 const [user, setUser] = useState(null);
@@ -36,37 +37,38 @@ const logout = () => {
 
             <hr />
 
-            <div className="menu-item">
-                🏠 Dashboard
-            </div>
+<Link to="/dashboard" className="menu-item">
+    🏠 Dashboard
+</Link>
 
 {isAdmin && (
-<div className="menu-item">
+<Link to="/doctors" className="menu-item">
     👨‍⚕️ Doctors
-</div>
+</Link>
 )}
+
 {isAdmin && (
-<div className="menu-item">
+<Link to="/patients" className="menu-item">
     🧑 Patients
-</div>
+</Link>
 )}
 
 {isAdmin && (
-<div className="menu-item">
+<Link to="/appointments" className="menu-item">
     📅 Appointments
-</div>
+</Link>
 )}
 
 {isAdmin && (
-<div className="menu-item">
+<Link to="/prescriptions" className="menu-item">
     💊 Prescriptions
-</div>
+</Link>
 )}
 
 {isAdmin && (
-<div className="menu-item">
+<Link to="/bills" className="menu-item">
     💳 Billing
-</div>
+</Link>
 )}
 
             <hr />
